@@ -964,7 +964,7 @@ section {
 }
 
 .accordion-content.open {
-    overflow:visible;
+    overflow:hidden;
 }
 
 
@@ -2761,3 +2761,126 @@ img {
     }
 
 }
+
+
+/* Kép nagyítás */
+
+.image-modal{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(8px);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:99999;
+
+}
+
+.image-modal.show{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+.image-modal img{
+
+    max-width:90%;
+    max-height:90vh;
+
+    border-radius:25px;
+
+    border:4px solid white;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+
+    animation:zoomImage .25s ease;
+
+}
+
+@keyframes zoomImage{
+
+    from{
+
+        transform:scale(.8);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+        opacity:1;
+
+    }
+
+}
+
+.prev-btn,
+.next-btn {
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:white;
+
+    color:#A98B69;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    transition:.3s;
+
+}
+
+
+.prev-btn:hover,
+.next-btn:hover {
+
+    background:#D1BA8F;
+
+    color:white;
+
+}
+
+
+.prev-btn {
+
+    left:40px;
+
+}
+
+
+.next-btn {
+
+    right:40px;
+
+}
+
+

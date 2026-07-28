@@ -364,3 +364,102 @@ treatmentButtons.forEach(button => {
     });
 
 });
+
+
+
+
+// KÉP NAGYÍTÁS
+
+function openImage(img){
+
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+
+    modalImg.src = img.src;
+
+    modal.classList.add("show");
+
+}
+
+
+function closeImage(){
+
+    const modal = document.getElementById("imageModal");
+
+    modal.classList.remove("show");
+
+}
+
+
+document.getElementById("imageModal").addEventListener("click", function(e){
+
+    if(e.target.id === "imageModal"){
+        closeImage();
+    }
+
+});
+
+
+
+let galleryImages = [];
+let currentImage = 0;
+
+
+window.onload = function(){
+
+    galleryImages = Array.from(document.querySelectorAll(".gallery img"));
+
+};
+
+
+function openImage(img){
+
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+
+    currentImage = galleryImages.indexOf(img);
+
+    modalImg.src = img.src;
+
+    modal.classList.add("show");
+
+}
+
+
+function nextImage(){
+
+    currentImage++;
+
+    if(currentImage >= galleryImages.length){
+        currentImage = 0;
+    }
+
+    document.getElementById("modalImage").src =
+    galleryImages[currentImage].src;
+
+}
+
+
+function prevImage(){
+
+    currentImage--;
+
+    if(currentImage < 0){
+        currentImage = galleryImages.length - 1;
+    }
+
+    document.getElementById("modalImage").src =
+    galleryImages[currentImage].src;
+
+}
+
+
+function closeImage(){
+
+    document.getElementById("imageModal")
+    .classList.remove("show");
+
+}
+
+
+

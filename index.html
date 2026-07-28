@@ -459,13 +459,6 @@ Relaxációs folyamat, melyek célja a vendég teljeskörű ellazulása
 
 
 
-
-
-
-</div>
-
-</div>
-
 <div class="accordion-item">
 
 <button class="accordion-header">
@@ -571,33 +564,17 @@ Néhány elkészült munkám, ahol minden részlet számít.
 
 <div class="gallery">
 
-<img src="images/korm1.jpg" alt="Köröm referencia">
-<img src="images/korm2.jpg" alt="Köröm referencia">
-<img src="images/korm3.jpg" alt="Köröm referencia">
-<img src="images/korm4.jpg" alt="Köröm referencia">
-<img src="images/korm5.jpg" alt="Köröm referencia">
-<img src="images/korm6.jpg" alt="Köröm referencia">
+<img src="images/korm1.jpg" alt="Köröm referencia"onclick=" openImage(this)">
+<img src="images/korm2.jpg" alt="Köröm referencia"onclick=" openImage(this)">
+<img src="images/korm3.jpg" alt="Köröm referencia"onclick=" openImage(this)">
+<img src="images/korm4.jpg" alt="Köröm referencia"onclick=" openImage(this)">
+<img src="images/korm5.jpg" alt="Köröm referencia"onclick=" openImage(this)">
+<img src="images/korm6.jpg" alt="Köröm referencia"onclick=" openImage(this)">
 
 </div>
 
 </section>
 
-<!-- ================= PRICES ================= -->
-
-<section id="prices">
-
-<h2>Árlista</h2>
-
-<div class="price-table">
-
-<table>
-
-<thead>
-
-
-
-</thead>
- 
 
 
 <!-- ================= PRICES ================= -->
@@ -880,7 +857,25 @@ Jucusbeautyandmakeup
 </div>
 
 
+
+<div id="imageModal" class="image-modal">
+
+    <button class="prev-btn" onclick="prevImage()">‹</button>
+
+    <img id="modalImage" src="" alt="Nagyított kép">
+
+    <button class="next-btn" onclick="nextImage()">›</button>
+
+</div>
+
 <script src="script.js"></script>
+
+
+
+
+
+
+
 
 
 
