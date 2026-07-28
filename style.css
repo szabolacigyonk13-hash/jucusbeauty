@@ -1699,6 +1699,12 @@ h2 {
 /* CONTACT */
 
 
+.contact-box{
+    grid-template-columns:1fr;
+    gap: 15px;
+}
+
+
 .contact-box div {
 
     width:100%;
