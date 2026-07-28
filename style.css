@@ -963,6 +963,9 @@ section {
 
 }
 
+.accordion-content.open {
+    overflow:visible;
+}
 
 
 .accordion-content p {
@@ -1444,7 +1447,24 @@ body {
 
 }
 
+.gallery {
 
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+}
+
+
+.gallery img {
+
+    height:180px;
+
+    border-radius:20px;
+
+    padding:4px;
+
+}
 
 /* NAVBAR */
 
@@ -1673,23 +1693,33 @@ h2 {
 
 /* PRICE TABLE */
 
-
 .price-table {
-
-
-    overflow-x:auto;
-
-
+    overflow:hidden;
+    width:100%;
+    border-radius:20px;
 }
 
 
-
 .price-table table {
+    min-width:0;
+    width:100%;
+    font-size:14px;
+}
 
 
-    min-width:500px;
+.price-table th {
+    padding:15px 10px;
+    font-size:14px;
+}
 
 
+.price-table td {
+    padding:15px 10px;
+}
+
+
+.price-table td:last-child {
+    white-space:nowrap;
 }
 
 
@@ -2048,5 +2078,686 @@ img {
     opacity:1;
 
     transform:translateY(0);
+
+}
+
+/* =========================================
+   GALÉRIA
+========================================= */
+
+
+#gallery {
+
+    background:white;
+
+}
+
+
+.gallery-text {
+
+    text-align:center;
+
+    color:#666;
+
+    margin-top:-30px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.gallery {
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.gallery img {
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    border-radius:30px;
+
+    border:2px solid var(--primary-blue);
+
+    padding:6px;
+
+    background:white;
+
+    box-shadow:var(--shadow);
+
+    transition:.4s;
+
+}
+
+
+.gallery img:hover {
+
+    transform: scale(1.03);
+
+}
+
+
+/* =========================================
+   GALÉRIA BÉZS HÁTTÉR + DEKOR KÖRÖK
+========================================= */
+
+#gallery {
+
+    background:#F8F1E7;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+/* dekor körök */
+
+#gallery::before,
+#gallery::after {
+
+    content:"";
+
+    position:absolute;
+
+    border-radius:50%;
+
+    z-index:0;
+
+}
+
+
+/* bal felső nagy kör */
+
+#gallery::before {
+
+    width:260px;
+
+    height:260px;
+
+    background:#E8D3B5;
+
+    top:-100px;
+
+    left:-100px;
+
+}
+
+
+/* jobb alsó nagy kör */
+
+#gallery::after {
+
+    width:220px;
+
+    height:220px;
+
+    background:#F0DFC6;
+
+    bottom:-80px;
+
+    right:-70px;
+
+}
+
+
+/* képek és szöveg a körök fölött */
+
+#gallery h2,
+#gallery .gallery-text,
+#gallery .gallery {
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+#gallery .gallery::before {
+
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+
+    height:90px;
+
+    background:#DAC6A2;
+
+    border-radius:50%;
+
+    top:40%;
+
+    left:5%;
+
+    z-index:-1;
+
+}
+
+
+#gallery .gallery::after {
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    background:#F5E8D0;
+
+    border-radius:50%;
+
+    top:20%;
+
+    right:8%;
+
+    z-index:-1;
+
+}
+
+
+
+
+/* =========================================
+   PRÉMIUM LAPOZHATÓ ÁRLISTA
+========================================= */
+
+
+.price-book {
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:#fffdf9;
+
+    border:1px solid var(--primary-blue);
+
+    border-radius:30px;
+
+    padding:45px 50px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.08);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+/* dekorációs arany vonal */
+
+.price-book::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:80px;
+
+    height:3px;
+
+    background:var(--primary-blue);
+
+}
+
+
+
+/* oldalak */
+
+
+.price-page {
+
+    display:none;
+
+    animation:priceFade .4s ease;
+
+}
+
+
+
+.price-page.active {
+
+    display:block;
+
+}
+
+
+
+@keyframes priceFade {
+
+    from {
+
+        opacity:0;
+
+        transform:translateX(20px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+
+/* kategória cím */
+
+
+.price-page h3 {
+
+    text-align:center;
+
+    color:var(--dark-blue);
+
+    font-size:28px;
+
+    margin-bottom:35px;
+
+    font-weight:600;
+
+}
+
+
+
+/* sorok */
+
+
+.price-page p {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 5px;
+
+    border-bottom:1px solid #eee5d5;
+
+    color:#444;
+
+    font-size:16px;
+
+}
+
+
+
+.price-page p:last-child {
+
+    border-bottom:none;
+
+}
+
+
+
+.price-page span {
+
+    color:#222;
+
+    font-weight:600;
+
+}
+
+
+
+/* LAPOZÓ */
+
+
+.price-buttons {
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-top:40px;
+
+}
+
+
+
+.price-buttons button {
+
+
+    width:45px;
+
+    height:45px;
+
+
+    border-radius:50%;
+
+
+    border:none;
+
+
+    background:#222;
+
+
+    color:white;
+
+
+    font-size:20px;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.price-buttons button:hover {
+
+
+    background:var(--primary-blue);
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/* oldalszám */
+
+
+#pageNumber {
+
+
+    font-size:15px;
+
+    color:#777;
+
+    min-width:60px;
+
+    text-align:center;
+
+
+}
+
+
+
+/* MOBIL */
+
+@media(max-width:768px){
+
+
+.price-book {
+
+
+    width:100%;
+
+    padding:35px 22px;
+
+    border-radius:25px;
+
+    min-height:520px;
+
+
+}
+
+
+
+.price-page h3 {
+
+
+    font-size:22px;
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+.price-page p {
+
+
+    font-size:14px;
+
+    padding:13px 0;
+
+
+}
+
+
+
+.price-buttons {
+
+
+    margin-top:30px;
+
+    gap:20px;
+
+
+}
+
+
+
+.price-buttons button {
+
+
+    width:40px;
+
+    height:40px;
+
+    font-size:18px;
+
+
+}
+
+
+
+}
+
+
+
+
+/* =========================================
+   KEZELÉSEK BELSŐ LENYÍLÓ ELEMEK
+========================================= */
+
+
+.treatment {
+
+    border-bottom:1px solid #eee;
+
+    display:block;
+
+}
+
+
+.treatment-title {
+
+    width:100%;
+
+    padding:16px 25px;
+
+    border:none;
+
+    background:#fafafa;
+
+    text-align:left;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    color:var(--dark-blue);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+
+
+.treatment-title:hover {
+
+    background:#F5E8D0;
+
+    padding-left:35px;
+
+}
+
+
+
+.treatment-title::after {
+
+    content:"+";
+
+    position:absolute;
+
+    right:25px;
+
+    font-size:22px;
+
+    color:var(--primary-blue);
+
+    transition:.3s;
+
+}
+
+
+
+.treatment-title.active::after {
+
+    content:"−";
+
+}
+
+
+
+.treatment-text {
+
+    max-height:0;
+
+    overflow:hidden;
+
+    background:white;
+
+    transition:max-height .4s ease;
+
+}
+
+.treatment-text.show {
+
+    max-height:300px;
+
+}
+
+
+
+.treatment-text p {
+
+    padding:20px 25px;
+
+    color:#666;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+
+
+/* kis arany díszcsík */
+
+.treatment:first-child {
+
+    border-top:1px solid #D1BA8F;
+
+}
+
+
+
+.treatment:last-child {
+
+    border-bottom:1px solid #D1BA8F;
+
+}
+
+
+
+/* MOBIL */
+
+@media(max-width:768px){
+
+
+    .treatment-title {
+
+        padding:15px 18px;
+
+        font-size:15px;
+
+    }
+
+
+    .treatment-title:hover {
+
+        padding-left:22px;
+
+    }
+
+
+    .treatment-title::after {
+
+        right:18px;
+
+    }
+
+
+    .treatment-text p {
+
+        padding:18px;
+
+        font-size:14px;
+
+    }
 
 }

@@ -264,3 +264,103 @@ function closeLogo(){
     document.getElementById("logoModal").style.display="none";
 
 }
+
+
+
+
+// ===============================
+// ÁRLISTA LAPOZÁS
+// ===============================
+
+let currentPrice = 0;
+
+const pricePages = document.querySelectorAll(".price-page");
+const pageNumber = document.getElementById("pageNumber");
+
+
+function showPrice(){
+
+    pricePages.forEach(page => {
+        page.classList.remove("active");
+    });
+
+
+    pricePages[currentPrice].classList.add("active");
+
+
+    pageNumber.innerHTML =
+    (currentPrice + 1) + " / " + pricePages.length;
+
+}
+
+
+
+function nextPrice(){
+
+    currentPrice++;
+
+
+    if(currentPrice >= pricePages.length){
+
+        currentPrice = 0;
+
+    }
+
+
+    showPrice();
+
+}
+
+
+
+
+function prevPrice(){
+
+    currentPrice--;
+
+
+    if(currentPrice < 0){
+
+        currentPrice = pricePages.length - 1;
+
+    }
+
+
+    showPrice();
+
+}
+
+
+
+// KEZELÉSEK BELSŐ LENYITÁS
+
+// KEZELÉSEK BELSŐ LENYITÁS
+
+const treatmentButtons = document.querySelectorAll(".treatment-title");
+
+treatmentButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const text = button.nextElementSibling;
+
+        text.classList.toggle("show");
+
+
+        const parentAccordion = button.closest(".accordion-content");
+
+
+        setTimeout(() => {
+
+            if(parentAccordion){
+
+                parentAccordion.style.maxHeight =
+                parentAccordion.scrollHeight + "px";
+
+            }
+
+        }, 450);
+
+    });
+
+});
