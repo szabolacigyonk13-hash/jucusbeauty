@@ -3118,3 +3118,25 @@ img {
 
 
 }
+
+
+@media(max-width:768px){
+
+    #gallery .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+
+    #gallery .gallery img {
+
+        height:140px !important;
+        width:100% !important;
+
+        object-fit:cover !important;
+
+        border-radius:20px;
+
+    }
+
+}
