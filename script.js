@@ -425,3 +425,24 @@ function closeImage(){
 
 
 
+
+
+setTimeout(() => {
+
+document.querySelectorAll("*").forEach(el => {
+
+    if(el.childNodes.length === 1 && el.childNodes[0].nodeType === 3){
+
+        if(el.textContent.trim() === "Follow"){
+            el.textContent = "Követés";
+        }
+
+        if(el.textContent.trim() === "Show more"){
+            el.textContent = "További bejegyzések";
+        }
+
+    }
+
+});
+
+}, 2000);

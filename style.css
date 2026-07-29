@@ -2673,23 +2673,15 @@ img {
 
 
 .treatment-text {
-
     max-height:0;
-
     overflow:hidden;
-
     background:white;
-
     transition:max-height .4s ease;
-
 }
 
 .treatment-text.show {
-
-    max-height:1000px;
-
+    max-height:5000px;
 }
-
 
 
 .treatment-text p {
