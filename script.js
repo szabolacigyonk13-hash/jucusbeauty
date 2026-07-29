@@ -45,46 +45,8 @@ navLinks.forEach(link => {
    ACCORDION / LENYÍLÓ SZOLGÁLTATÁSOK
 ========================================= */
 
+const accordionButtons = document.querySelectorAll(".accordion-header"); accordionButtons.forEach(button => { button.addEventListener("click", () => { button.classList.toggle("active"); const content = button.nextElementSibling; if(content.style.maxHeight){ content.style.maxHeight = null; } else { content.style.maxHeight = content.scrollHeight + "px"; } }); });
 
-const accordionButtons = document.querySelectorAll(".accordion-header");
-
-
-accordionButtons.forEach(button => {
-
-
-    button.addEventListener("click", () => {
-
-
-        button.classList.toggle("active");
-
-
-        const content = button.nextElementSibling;
-
-
-
-        if(content.style.maxHeight){
-
-
-            content.style.maxHeight = null;
-
-
-        }
-
-        else {
-
-
-            content.style.maxHeight = content.scrollHeight + "px";
-
-
-        }
-
-
-
-    });
-
-
-
-});
 
 
 
