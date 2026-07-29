@@ -1447,26 +1447,24 @@ body {
 
 }
 
-.gallery {
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:12px;
-
-}
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
 
 
-.gallery img {
+    .gallery img {
 
-    height:180px;
+        width:100%;
+        aspect-ratio:1 / 1;
+        height:auto;
 
-    object-fit:cover;
+        object-fit:cover;
 
-    border-radius:20px;
+        border-radius:20px;
 
-    padding:4px;
-
-}
+        padding:4px;
+    }
 
 /* NAVBAR */
 
